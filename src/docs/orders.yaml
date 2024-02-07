@@ -1,0 +1,42 @@
+paths:
+  /orders:
+    get:
+      summary: Obtiene todas las ordenes
+      tags: 
+        - orders
+      responses:
+        "200":
+          description: "Se han obtenido los datos de manera correcta"
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: './Documentar API/src/docs/orders-schema.yaml'
+        "500":
+          description: "Error del servidor"
+    post:
+      summary: Ingresa una orden
+      tags:
+        - orders
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                amount:
+                  type: number
+                  description: Monto de order
+                purchaser:
+                  type: string
+                  description: Comprador de order
+              required:
+                - amount
+                - purchaser
+      responses:
+        "200":
+          description: "Order creada de manera correcta"
+        "500":
+          description: "Error del servidor"

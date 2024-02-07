@@ -1,0 +1,96 @@
+/* Estilos generales */
+body {
+    font-family: 'Helvetica', sans-serif;
+    color: #000; /* Texto negro */
+    background-color: #fff; /* Fondo blanco */
+    margin: 20px; /* Márgenes generales */
+    padding: 0;
+}
+
+/* Estilos para los enlaces */
+a {
+    color: #000; /* Negro */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para los contenedores principales */
+.container, .product-details, .orders-details {
+    margin: 20px auto; /* Márgenes laterales con centrado */
+    padding: 20px;
+    border: 1px solid #000; /* Negro */
+    border-radius: 5px;
+}
+
+/* Estilos para las listas */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* Estilos para los elementos de la lista */
+li {
+    margin-bottom: 10px;
+}
+
+/* Estilos para los botones */
+button[type="submit"] {
+    background-color: #000; /* Negro */
+    color: #fff; /* Blanco */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #333; /* Gris oscuro */
+}
+
+/* Estilos para los elementos fuertes */
+strong {
+    color: #000; /* Negro */
+}
+
+/* Estilos para los párrafos */
+p {
+    margin: 0;
+}
+
+/* Estilos para los contenedores de cantidad */
+.quantity-container {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Estilos para los botones de cantidad */
+.quantity-btn {
+    background-color: #000; /* Negro */
+    color: #fff; /* Blanco */
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+#quantityValue {
+    margin: 0 10px;
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: #000; /* Negro */
+    color: #fff; /* Blanco */
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px; /* Márgenes inferiores */
+}
+
+header h1 {
+    margin: 0;
+}

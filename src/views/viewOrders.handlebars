@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Producto</title>
+    <!-- Agrega tus estilos CSS aquí -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <a href="/current">Seguir comprando</a>
+    <div class="orders-details">
+        <p>Orden ID: {{orders._id}}</p>
+        <h2>Compra realizada exitosamente</h2>
+        <ul>
+            <li>
+                <strong>Resumen de tu orden</strong>
+                <p>Código: {{orders.code}}</p>
+                <p>Fecha: {{orders.purchase_datetime}}</p>
+                <p>Monto Total:{{orders.amount}}</p>
+                <p>Comprador: {{orders.purchaser}}</p>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <footer>
+
+    </footer>
+    
+</body>
+</html>
