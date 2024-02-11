@@ -19,11 +19,19 @@ export default class UserRepository {
         let result = await this.dao.getUserRoleByEmail(email)
         return result
     }
-    updUserRol = async ({uid, rol}) => {
+
+     updUserRol = async ({uid, rol}) => {
         console.log(uid)
         console.log(rol)
-        let result = await this.dao.updateUserRoleById({uid, rol})
-        return result
+     let result = await this.dao.updateUserRoleById({uid, rol})
+     return result
     }
+
+    // updUserRol = async ({userId, role}) => {
+    //     console.log(userId)
+    //     console.log(role)
+    //     let result = await this.dao.updateUserRoleById({userId, role})
+    //     return result
+    // }
 
 }

@@ -25,13 +25,31 @@ export const passportCall = (strategy) => {
         })(req, res, next)
     }
 }
-export const authorization= (role) => {
-    return async(req, res, next)=>{
-        if(!req.user) return res.status(401).send({error: "Unauthorized"})
-        if(req.user.role!= role) return res.status(403).send({error:"No permissions"})
-        next()
+// export const authorization= (role) => {
+//     return async(req, res, next)=>{
+//         if(!req.user) return res.status(401).send({error: "Unauthorized"})
+//         if(req.user.role!= role) return res.status(403).send({error:"No permissions"})
+//         next()
+//     }
+// }
+
+export const authorization = (role) => {
+  return async (req, res, next) => {
+    if (!req.user) {
+      // Si el usuario no está autenticado, pasamos al siguiente middleware
+      return next();
     }
-}
+
+    if (req.user.role !== role) {
+      // Si el usuario está autenticado pero su rol no coincide con el rol especificado, devolvemos un error de permisos
+      return res.status(403).send({ error: "No permissions" });
+    }
+
+    // Si el usuario está autenticado y tiene el rol correcto, pasamos al siguiente middleware
+    next();
+  };
+};
+
 export const transport= nodemailer.createTransport({
     service:'gmail',
     port:587,

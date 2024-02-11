@@ -42,7 +42,7 @@ router.post("/", async (req, res) => {
 router.post("/premium/:uid", async (req, res) => {
   try {
     const { rol } = req.body;
-    const allowedRoles = ['premium', 'admin', 'usuario'];
+    const allowedRoles = ['premium', 'admin', 'user'];
     const uid = req.params.uid;
 
     if (!allowedRoles.includes(rol)) {
@@ -50,7 +50,7 @@ router.post("/premium/:uid", async (req, res) => {
       return res.status(400).json({ error: 'Rol no válido' });
     }
 
-    if (!(await haveRequiredDocuments(uid))) {  
+    if (!(await usersMongo.haveRequiredDocuments(uid))) {  
       req.logger.error('El usuario no tiene los documentos requeridos para el rol premium');
       return res.status(400).json({ error: 'El usuario no tiene los documentos requeridos para el rol premium' });
     }

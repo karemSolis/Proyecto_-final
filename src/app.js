@@ -348,6 +348,7 @@ app.get('/current',passportCall('jwt', { session: false }), authorization('user'
     authorization('user')(req, res,async() => { 
         const userData = {
             email: req.user.email,
+
         };
         const idCartUser = await users.getIdCartByEmailUser(req.user.email)
         const prodAll = await products.get();
@@ -470,7 +471,6 @@ app.get("/checkout", async (req, res) => {
     let cart_Id = req.query.cartId
     let purchaser = req.query.purchaser
     let totalAmount = req.query.totalPrice
-
     let productIds = req.query.products || [];
     let quantities = req.query.quantities || [];
 
