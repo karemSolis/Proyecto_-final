@@ -85,9 +85,6 @@ paths:
                       stock:
                         type: integer
                         description: Stock disponible del producto
-                      category:
-                        type: string
-                        description: Categoría del producto
                       availability:
                         type: string
                         enum: ['in_stock', 'out_of_stock']

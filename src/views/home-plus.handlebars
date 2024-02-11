@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="formulario">
-        <h1>Formulario para Crear,Actualizar y Eliminar Productos</h1>
+        <h1>Formulario Operaciones CRUD</h1>
         <form id="prod-form">
             <input type="hidden" id="productId" name="productId">
             <input type="hidden" id="correoLogin" name="correoLogin" value="{{email}}">
@@ -37,7 +37,6 @@
                 </div>
                 <div>
                     <input type="number" id="stock" autocomplete="off" placeholder="Ingrese Stock" required>
-                    <input type="text" id="cat" autocomplete="off" placeholder="Ingrese Categoria" required>
                     <select name="available" id="available">
                         <option value="in_stock" selected="true">Con Stock</option>
                         <option value="out_stock">Sin Stock</option>

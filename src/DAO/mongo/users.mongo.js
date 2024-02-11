@@ -1,4 +1,5 @@
 import usersModel from './models/user.model.js'
+import logger from '../../logger.js'
 
 export default class Users {
     constructor() {
@@ -8,9 +9,12 @@ export default class Users {
 
     get = async () => {
       try {
+          logger.info('Obteniendo usuarios...');
           let users = await usersModel.find().select('_id first_name email rol');
+          logger.info('Usuarios obtenidos:', users);
           return users;
       } catch (error) {
+          logger.error('Error al obtener los usuarios:', error);
           return 'Error, no se puede obtener los usuarios';
       }
   }
@@ -18,13 +22,17 @@ export default class Users {
 
     getUserById = async (id) => { 
         try {
+          logger.info(`Obteniendo usuario con ID: ${id}...`);
           const user = await usersModel.findById(id).lean();    
           if (!user) 
           {
+            logger.warn(`Usuario con ID ${id} no encontrado`);
             return 'Usuario no encontrado';
           }   
+          logger.info('Usuario obtenido:', user);
           return user;
         } catch (error) {
+          logger.error('Error al obtener el usuario:', error);
           return 'Error, No se puede obtener el usuario';
         }
       }
@@ -55,15 +63,19 @@ export default class Users {
 
     getUserRoleByEmail = async (email) => {
       try {
-        
+        logger.info(`Buscando usuario con email: ${email}`); // Registro de información
         const user = await usersModel.findOne({ email });
     
         if (user && user.rol === 'premium') {
+          logger.info(`Usuario encontrado con email: ${email}, rol: ${user.rol}`); // Registro de información
+          logger.info(`El usuario con email ${email} tiene un rol de premium`);
           return 'premium'
         } else {
+          logger.warn(`El usuario con email ${email} no tiene un rol de premium`); // Registro de advertencia
           return "No corresponde el rol de usuario"
         }
       } catch (error) {
+        logger.error(`Error al obtener el rol del usuario con email ${email}: ${error}`); // Registro de error
         return 'No se puede obtener rol de usuario';
       }
     };
@@ -113,11 +125,9 @@ export default class Users {
       if (updatedUser) {
         return updatedUser;
       } else {
-        console.error('Usuario no encontrado');
         return null;
       }
     } catch (error) {
-      console.error('Error al actualizar la última conexión:', error);
       throw error;
     }
   };
@@ -184,7 +194,6 @@ export default class Users {
             return null; 
           }
         } catch (error) {
-          console.error('Error al actualizar el rol:', error);
           return 'Error al actualizar el rol';
         }
       };
@@ -198,7 +207,6 @@ export default class Users {
             let deletedUser = await usersModel.deleteOne({ _id: idToDelete });
             return deletedUser;
         } catch (error) {
-            console.error('Error al eliminar usuario:', error);
             return 'Error al eliminar usuario';
         }
       };
@@ -220,7 +228,6 @@ export default class Users {
             return [];
           }
         } catch (error) {
-          console.error('Error al eliminar usuarios:', error);
           throw error;
         }
       };
@@ -232,7 +239,6 @@ export default class Users {
           const user = await usersModel.findById(userId);
       
           if (!user) {
-            console.error('Usuario no encontrado');
             return null;
           }
       
@@ -246,7 +252,6 @@ export default class Users {
       
           return updatedUser;
         } catch (error) {
-          console.error('Error al actualizar los documentos:', error);
           throw error;
         }
       };
@@ -272,7 +277,6 @@ export default class Users {
       
           return true;
         } catch (error) {
-          console.error('Error al verificar los documentos:', error);
           throw error;
         }
       };

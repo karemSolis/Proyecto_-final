@@ -1,24 +1,21 @@
-{"level":"error","message":"Error de autenticación: Usuario no encontrado"}
-{"level":"error","message":"Error de autenticación: Usuario no encontrado"}
-{"level":"error","message":"Error de autenticación: Usuario no encontrado"}
-{"level":"error","message":"Error de autenticación: Usuario no encontrado"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"El owner debe contener usuarios premium"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
-{"level":"error","message":"El owner debe contener usuarios premium"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@outlook.es"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
@@ -48,4 +45,5 @@
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
-{"level":"error","message":"Error al conectar a la base de datos Atlas de MongoDB:"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"warn","message":"El usuario con email soliskarem@gmail.com no tiene un rol de premium"}

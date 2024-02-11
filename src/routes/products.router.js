@@ -40,7 +40,7 @@ router.get("/:id", async (req, res) => {
 
 
 router.post("/", async (req, res) => {
-    let { description, image, price, stock, category, availability, owner } = req.body;
+    let { description, image, price, stock, availability, owner } = req.body;
 
     try {
         if (!description || !price) {
@@ -53,7 +53,7 @@ router.post("/", async (req, res) => {
         }
 
         req.logger.info('Se crea producto correctamente');
-        let prod = new ProductDTO({ description, image, price, stock, category, availability, owner });
+        let prod = new ProductDTO({ description, image, price, stock, availability, owner });
         let userPremium = await userService.getRolUser(owner);
 
         if (userPremium == 'premium') {

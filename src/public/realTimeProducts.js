@@ -23,9 +23,6 @@ document.getElementById('prod-form').addEventListener('submit', (e) => {
     const stock = stockInput.value;
     stockInput.value = '';
 
-    const catInput = document.getElementById('cat');
-    const category = catInput.value;
-    catInput.value = '';
 
     const availableInput = document.getElementById('available');
     const available = availableInput.value;
@@ -47,7 +44,6 @@ document.getElementById('prod-form').addEventListener('submit', (e) => {
             image:image,
             price: price,
             stock: stock,
-            category: category,
             availability: available,
             owner: owner,
         }

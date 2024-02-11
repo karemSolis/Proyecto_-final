@@ -26,28 +26,6 @@ export default class Carts {
         }
     };
 
-
-    getQuantities = async ({ productos }) => {
-        try {
-            let totalAmount = 0;
-
-            if (!productos || !Array.isArray(productos)) {
-                console.error('La propiedad "productos" no es un array válido.');
-                return totalAmount;
-            }
-
-            for (const producto of productos) {
-                totalAmount += producto.price * producto.stock;
-            }
-
-            return totalAmount;
-        } catch (error) {
-            console.error('Error al calcular el monto:', error);
-            return 0;
-        }
-    };
-
-
     getStock = async ({ productos }) => {
         try {
             const stockInfo = {};
@@ -99,6 +77,26 @@ export default class Carts {
             return stockInfo;
         } catch (error) {
             return { error: 'Error interno al obtener el stock' };
+        }
+    };
+
+    getQuantities = async ({ productos }) => {
+        try {
+            let totalAmount = 0;
+
+            if (!productos || !Array.isArray(productos)) {
+                console.error('La propiedad "productos" no es un array válido.');
+                return totalAmount;
+            }
+
+            for (const producto of productos) {
+                totalAmount += producto.price * producto.stock;
+            }
+
+            return totalAmount;
+        } catch (error) {
+            console.error('Error al calcular el monto:', error);
+            return 0;
         }
     };
 

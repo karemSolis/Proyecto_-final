@@ -30,6 +30,7 @@ import { Strategy as JwtStrategy } from 'passport-jwt';
 import { ExtractJwt as ExtractJwt } from 'passport-jwt';
 import { nanoid } from 'nanoid';
 import { engine } from "express-handlebars";
+import logger from './logger.js';
 
 //import config from './config/factory.config.js'
 
@@ -43,12 +44,27 @@ const products = new ProdMongo()
 const orders = new OrderMongo()
 const users = new UserMongo()
 
-
-
-
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+});
+
+// Agregar un registro cuando la conexión a la base de datos se establece correctamente
+mongoose.connection.on('connected', () => {
+    console.log('Conexión establecida con la base de datos Atlas de MongoDB');
+    logger.info('Conexión establecida con la base de datos Atlas de MongoDB');
+});
+
+// Manejar errores de conexión
+mongoose.connection.on('error', (err) => {
+    console.error('Error al conectar a la base de datos Atlas de MongoDB:', err.message);
+    logger.error('Error al conectar a la base de datos Atlas de MongoDB:', err.message);
+});
+
+// Manejar desconexiones
+mongoose.connection.on('disconnected', () => {
+    console.log('Desconectado de la base de datos Atlas de MongoDB');
+    logger.warn('Desconectado de la base de datos Atlas de MongoDB');
 });
 
 const jwtOptions = {
@@ -423,7 +439,6 @@ app.get("/carts/:cid", async (req, res) => {
         let allCarts = await carts.getCartMoreProducts(id);
 
         if (!allCarts || !allCarts.products || !Array.isArray(allCarts.products)) {
-            console.error("Error al obtener el carrito o productos del carrito.");
             return res.status(500).send("Error interno al procesar la solicitud.");
         }
 
@@ -525,7 +540,6 @@ app.get("/mockingproducts", async(req,res)=>{
             image: 'https://example.com/image.jpg',
             price: getRandomNumber(1, 1000),
             stock: getRandomNumber(1, 100),
-            category: `Category ${i % 5 + 1}`,
             availability: 'in_stock'
         };
 

@@ -19,7 +19,6 @@ router.post("/mockingproducts", async (req, res) => {
                 code: faker.datatype.number({ min: 100, max: 999 }),
                 price: faker.commerce.price({ min: 5000, max: 20000, dec: 0 }),
                 stock: faker.datatype.number({ min: 1, max: 100 }),
-                category: faker.commerce.department(),
                 thumbnails: faker.image.imageUrl(),
                 quantity: faker.datatype.number({ min: 1, max: 10 })
             };

@@ -38,9 +38,6 @@ paths:
                 stock:
                   type: number
                   description: Stock producto
-                category:
-                  type: string
-                  description: Categoria producto
                 availability:
                   type: string
                   description: Disponibilidad producto
@@ -52,7 +49,6 @@ paths:
                 - image
                 - price
                 - stock
-                - category
                 - availability
                 - owner
       responses:

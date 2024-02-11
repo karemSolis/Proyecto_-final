@@ -1,4 +1,4 @@
-<h1> HOME ADMINISTRADOR</h1> <button id="userButton">Gestión Usuarios</button>
+<h1> INICIO ADMINISTRADOR</h1> <button id="userButton">Gestión Usuarios</button>
 <div class="container">
     <button id="logoutButton">Cerrar Sesión</button>
    
@@ -14,7 +14,6 @@
                         <strong>{{this.description}}</strong><br>
                         Price: ${{this.price}}<br>
                         Stock: {{this.stock}}<br>
-                        Category: {{this.category}}<br>
                         Available: {{this.availability}}<br>
                         Owner:{{this.owner}}<br>
                         ID:{{this._id}}<br><br>
@@ -25,7 +24,7 @@
         </div>
     </div>
     <div class="formulario">
-        <h1>Formulario para Crear,Actualizar, Eliminar Productos</h1>
+        <h1>Formulario Operaciones CRUD</h1>
         <form id="prod-form">
             <input type="hidden" id="productId" name="productId">
             <div class="inputs">
@@ -85,7 +84,6 @@
                 const image = clickedElement.getAttribute("data-image");
                 const price = clickedElement.getAttribute("data-price");
                 const stock = clickedElement.getAttribute("data-stock");
-                const category = clickedElement.getAttribute("data-category");
                 const owner = clickedElement.getAttribute("data-owner");
                 const productId = clickedElement.getAttribute("data-id");
 
@@ -94,7 +92,6 @@
                 imgInput.value = image;
                 priceInput.value = price;
                 stockInput.value = stock;
-                catInput.value = category;
                 ownerInput.value = owner;
                 idInput.value = productId;
 
