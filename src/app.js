@@ -517,7 +517,7 @@ app.get("/checkout", async (req, res) => {
 
 //VER ORDERS
 app.get("/orders/:Oid", async (req, res) => {
-    let id = req.params.tid
+    let id = req.params.Oid
     let allOrders  = await orders.getOrderById(id)
     res.render("viewOrder", {
         title: "Vista Order",

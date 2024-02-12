@@ -54,3 +54,10 @@
 {"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
 {"level":"error","message":"Error al comparar contraseñas: data and hash arguments required"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"warn","message":"El usuario con email undefined no tiene un rol de premium"}
+{"level":"warn","message":"El usuario con email soliskarem@gmail.com no tiene un rol de premium"}
+{"level":"error","message":"El owner debe contener usuarios premium"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"warn","message":"El usuario con email Test Owner no tiene un rol de premium"}
+{"level":"warn","message":"El usuario con email Test Owner no tiene un rol de premium"}
