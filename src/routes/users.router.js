@@ -109,8 +109,10 @@ router.post("/:uid/documents", uploader.fields([
   { name: 'comprobante_domicilio', maxCount: 1 },
   { name: 'comprobante_estado_cuenta', maxCount: 1 }
 ]), async(req, res) => {
+  console.log("Entrando a la ruta /:uid/documents");
   const files = req.files;
   const userId = req.params.uid
+  console.log("UserID:", userId); 
   let user = await usersMongo.getUserById(userId)
   if (!user) {
     return res.status(404).json({ status: 'error', error: 'Usuario no encontrado' });

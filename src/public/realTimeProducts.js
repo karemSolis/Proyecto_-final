@@ -86,7 +86,7 @@ socket.on("errorUserPremium", (data) => {
 
 /*
 socket.on("test", data => {
-    console.log(data)
+console.log(data)
 })
 
 const socket = io()
@@ -98,7 +98,7 @@ socket.emit("message", "!Hola, me estoy comunicando desde un websocket!")
 //Recibe en la consola del Navegador
 
 socket.on("test", data => {
-    console.log(data)
+console.log(data)
 })
 
 */

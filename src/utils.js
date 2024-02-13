@@ -25,27 +25,21 @@ export const passportCall = (strategy) => {
         })(req, res, next)
     }
 }
-// export const authorization= (role) => {
-//     return async(req, res, next)=>{
-//         if(!req.user) return res.status(401).send({error: "Unauthorized"})
-//         if(req.user.role!= role) return res.status(403).send({error:"No permissions"})
-//         next()
-//     }
-// }
+
 
 export const authorization = (role) => {
   return async (req, res, next) => {
     if (!req.user) {
-      // Si el usuario no está autenticado, pasamos al siguiente middleware
+
       return next();
     }
 
     if (req.user.role !== role) {
-      // Si el usuario está autenticado pero su rol no coincide con el rol especificado, devolvemos un error de permisos
+
       return res.status(403).send({ error: "No permissions" });
     }
 
-    // Si el usuario está autenticado y tiene el rol correcto, pasamos al siguiente middleware
+
     next();
   };
 };
@@ -55,12 +49,12 @@ export const transport= nodemailer.createTransport({
     port:587,
     auth:{
         user:'soliskarem@gmail.com',
-        pass:'zzhb dqyx hfpt unvv'
+        pass:'dcbk trrx iubw kagl'
     }
 })
 
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
+    destination: (req, file, cb) => { // recibe el destino de los archivos que va a encontrar 
       const fileType = file.fieldname;
       let uploadPath = 'public/files/';
   
@@ -89,7 +83,6 @@ const storage = multer.diskStorage({
           break;
       }
   
-
       const fullPath = path.join(__dirname, uploadPath);
       console.log(fullPath)
       if (!fs.existsSync(fullPath)) {
@@ -108,7 +101,8 @@ const storage = multer.diskStorage({
   
       cb(null, finalFilePath);
     }
-  });
+  }); 
+
 export const uploader = multer({ storage: storage });
 
 const __filename = fileURLToPath(import.meta.url)

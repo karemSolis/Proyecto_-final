@@ -574,3 +574,102 @@
 {"level":"info","message":"Buscando usuario con email: soliskarem@outlook.es"}
 {"level":"info","message":"Usuario encontrado con email: soliskarem@outlook.es, rol: premium"}
 {"level":"info","message":"El usuario con email soliskarem@outlook.es tiene un rol de premium"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: sanchezhinojosa@gmail.com"}
+{"level":"info","message":"Se inicia página de Usuario"}
+{"level":"info","message":"Se Cierra Sesión"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Administrador Usuario"}
+{"level":"info","message":"Obteniendo usuarios..."}
+{"0":{"_id":"65c4033acc14a6e16fe03986","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"1":{"_id":"65c4033a59de62680f641a0c","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"10":{"_id":"65c92ed8d7f851e0e41ebf27","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"11":{"_id":"65c92ed84fe55871e289089a","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"2":{"_id":"65c7bde7e765114442f60af7","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"3":{"_id":"65c7bde816c0ebbbc8c7d090","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"4":{"_id":"65c7d95320f8c9579f5427c0","email":"soliskarem@gmail.com","first_name":"Karem ","rol":"admin"},"5":{"_id":"65c7dbae20f8c9579f5427e0","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"6":{"_id":"65c7dbaf20f8c9579f5427e5","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"7":{"_id":"65c7de1420f8c9579f5427f0","email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","rol":"usuario"},"8":{"_id":"65c858b201420a948b9a2d08","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"9":{"_id":"65c858b3bd3427c106767957","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"level":"info","message":"Usuarios obtenidos:"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@gmail.com"}
+{"level":"warn","message":"El usuario con email soliskarem@gmail.com no tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Se inicia página de Registro de Usuarios"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@outlook.com"}
+{"level":"warn","message":"El usuario con email soliskarem@outlook.com no tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@outlook.es"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@outlook.es"}
+{"level":"info","message":"Usuario encontrado con email: soliskarem@outlook.es, rol: premium"}
+{"level":"info","message":"El usuario con email soliskarem@outlook.es tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@outlook.es"}
+{"level":"info","message":"Usuario encontrado con email: soliskarem@outlook.es, rol: premium"}
+{"level":"info","message":"El usuario con email soliskarem@outlook.es tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Administrador Usuario"}
+{"level":"info","message":"Obteniendo usuarios..."}
+{"0":{"_id":"65c4033acc14a6e16fe03986","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"1":{"_id":"65c4033a59de62680f641a0c","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"10":{"_id":"65c92ed8d7f851e0e41ebf27","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"11":{"_id":"65c92ed84fe55871e289089a","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"2":{"_id":"65c7bde7e765114442f60af7","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"3":{"_id":"65c7bde816c0ebbbc8c7d090","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"4":{"_id":"65c7d95320f8c9579f5427c0","email":"soliskarem@gmail.com","first_name":"Karem ","rol":"admin"},"5":{"_id":"65c7dbae20f8c9579f5427e0","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"6":{"_id":"65c7dbaf20f8c9579f5427e5","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"7":{"_id":"65c7de1420f8c9579f5427f0","email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","rol":"usuario"},"8":{"_id":"65c858b201420a948b9a2d08","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"9":{"_id":"65c858b3bd3427c106767957","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"level":"info","message":"Usuarios obtenidos:"}
+{"level":"info","message":"Se inicia página de Administrador Usuario"}
+{"level":"info","message":"Obteniendo usuarios..."}
+{"0":{"_id":"65c4033a59de62680f641a0c","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"1":{"_id":"65c7bde7e765114442f60af7","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"10":{"_id":"65c92ed84fe55871e289089a","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"2":{"_id":"65c7bde816c0ebbbc8c7d090","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"3":{"_id":"65c7d95320f8c9579f5427c0","email":"soliskarem@gmail.com","first_name":"Karem ","rol":"admin"},"4":{"_id":"65c7dbae20f8c9579f5427e0","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"5":{"_id":"65c7dbaf20f8c9579f5427e5","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"6":{"_id":"65c7de1420f8c9579f5427f0","email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","rol":"usuario"},"7":{"_id":"65c858b201420a948b9a2d08","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"8":{"_id":"65c858b3bd3427c106767957","email":"SuperTest Email","first_name":"SuperTest First Name","rol":"SuperTest Rol"},"9":{"_id":"65c92ed8d7f851e0e41ebf27","email":"Test Email","first_name":"Test First Name","rol":"Test Rol"},"level":"info","message":"Usuarios obtenidos:"}
+{"level":"info","message":"Se inicia página de Administrador Usuario"}
+{"level":"info","message":"Obteniendo usuarios..."}
+{"0":{"_id":"65c7dbae20f8c9579f5427e0","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"1":{"_id":"65c7de1420f8c9579f5427f0","email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","rol":"usuario"},"level":"info","message":"Usuarios obtenidos:"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Se inicia página de Registro de Usuarios"}
+{"level":"info","message":"Registro exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: sanchezhinojosa@gmail.com"}
+{"level":"info","message":"Se inicia página de Usuario"}
+{"level":"info","message":"Se inicia página de Usuario"}
+{"level":"info","message":"Se inicia página de Usuario"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Se Cierra Sesión"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Administrador Usuario"}
+{"level":"info","message":"Obteniendo usuarios..."}
+{"0":{"_id":"65c7dbae20f8c9579f5427e0","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"1":{"_id":"65c7de1420f8c9579f5427f0","email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","rol":"usuario"},"2":{"_id":"65cac377a7f69f545a24022f","email":"soliskarem@gmail.com","first_name":"Karem ","rol":"admin"},"level":"info","message":"Usuarios obtenidos:"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}

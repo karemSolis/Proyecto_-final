@@ -26,3 +26,12 @@ const userSchema = new mongoose.Schema({
 
 const usersModel = mongoose.model(usersCollection, userSchema)
 export default usersModel
+
+/*
+login
+{
+    "email": "soliskarem@gmail.com",
+    "password": "123456789"
+}
+
+*/
