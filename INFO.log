@@ -673,3 +673,70 @@
 {"level":"info","message":"Se inicia página de Inicio de Login"}
 {"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
 {"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se envia correo para reestablecer contraseña a correosoliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@outlook.es"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: sanchezhinojosa@gmail.com"}
+{"level":"info","message":"Se inicia página de Usuario"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@outlook.es"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@outlook.es"}
+{"level":"info","message":"Usuario encontrado con email: soliskarem@outlook.es, rol: premium"}
+{"level":"info","message":"El usuario con email soliskarem@outlook.es tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@outlook.es"}
+{"level":"info","message":"Usuario encontrado con email: soliskarem@outlook.es, rol: premium"}
+{"level":"info","message":"El usuario con email soliskarem@outlook.es tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Buscando usuario con email: soliskarem@outlook.es"}
+{"level":"info","message":"Usuario encontrado con email: soliskarem@outlook.es, rol: premium"}
+{"level":"info","message":"El usuario con email soliskarem@outlook.es tiene un rol de premium"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Administrador Usuario"}
+{"level":"info","message":"Obteniendo usuarios..."}
+{"0":{"_id":"65c7dbae20f8c9579f5427e0","email":"soliskarem@outlook.es","first_name":"Karem ","rol":"premium"},"1":{"_id":"65c7de1420f8c9579f5427f0","email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","rol":"usuario"},"2":{"_id":"65cac377a7f69f545a24022f","email":"soliskarem@gmail.com","first_name":"Karem ","rol":"admin"},"level":"info","message":"Usuarios obtenidos:"}
+{"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Se inicia página de Inicio de Login"}
+{"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@outlook.es"}
+{"level":"info","message":"Se inicia página de Usuario Plus (Premium)"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":0,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":1,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":2,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":3,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"},{"_id":"65cc14d3bb71571370bb7154","name":"products"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":4,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"},{"_id":"65cc14d3bb71571370bb7154","name":"products"},{"_id":"65cc14eabb71571370bb715b","name":"products"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":5,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"},{"_id":"65cc14d3bb71571370bb7154","name":"products"},{"_id":"65cc14eabb71571370bb715b","name":"products"},{"_id":"65cc1504bb71571370bb7163","name":"products"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":6,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"},{"_id":"65cc14d3bb71571370bb7154","name":"products"},{"_id":"65cc14eabb71571370bb715b","name":"products"},{"_id":"65cc1504bb71571370bb7163","name":"products"},{"_id":"65cc153dbb71571370bb716c","name":"profiles"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":7,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"},{"_id":"65cc14d3bb71571370bb7154","name":"products"},{"_id":"65cc14eabb71571370bb715b","name":"products"},{"_id":"65cc1504bb71571370bb7163","name":"products"},{"_id":"65cc153dbb71571370bb716c","name":"profiles"},{"_id":"65cc1569bb71571370bb7176","name":"profiles"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}
+{"level":"info","message":"Obteniendo usuario con ID: 65c7de1420f8c9579f5427f0..."}
+{"__v":8,"_id":"65c7de1420f8c9579f5427f0","age":38,"documents":[{"_id":"65cc141cbb71571370bb7149","name":"products"},{"_id":"65cc14a2bb71571370bb714e","name":"products"},{"_id":"65cc14d3bb71571370bb7154","name":"products"},{"_id":"65cc14eabb71571370bb715b","name":"products"},{"_id":"65cc1504bb71571370bb7163","name":"products"},{"_id":"65cc153dbb71571370bb716c","name":"profiles"},{"_id":"65cc1569bb71571370bb7176","name":"profiles"},{"_id":"65cc158dbb71571370bb7181","name":"profiles"}],"email":"sanchezhinojosa@gmail.com","first_name":"Sebastián","id_cart":"65cac4eea7f69f545a24024f","last_connection":"2024-02-13T23:42:37.999Z","last_name":"Sánchez ","level":"info","message":"Usuario obtenido:","password":"$2b$10$i43BO1xZAKQLBewZxVHrR.pC.X8TUCjB.r194hgCAC94Ok4dURDGO","rol":"usuario"}

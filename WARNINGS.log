@@ -81,3 +81,5 @@
 {"level":"warn","message":"Intento de registro con un correo electrónico ya existente: soliskarem@gmail.com"}
 {"level":"warn","message":"El usuario con email soliskarem@outlook.com no tiene un rol de premium"}
 {"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
