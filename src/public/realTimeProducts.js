@@ -38,16 +38,16 @@ document.getElementById('prod-form').addEventListener('submit', (e) => {
     if (eliminarProducto) {
 
         socket.emit("delProd", { id: id });
-    }else{
+    } else {
         const newProduct = {
             description: description,
-            image:image,
+            image: image,
             price: price,
             stock: stock,
             availability: available,
             owner: owner,
         }
-    
+
         if (id === '') {
 
             socket.emit("newProd", newProduct);
@@ -63,10 +63,10 @@ socket.on("success", (data) => {
         icon: 'success',
         title: data,
         text: `A continuación verás la lista actualizada`,
-        confirmButtonText: 'Aceptar', 
+        confirmButtonText: 'Aceptar',
     }).then((result) => {
         if (result.isConfirmed) {
-            location.reload(); 
+            location.reload();
         }
     });
 });
@@ -75,30 +75,11 @@ socket.on("errorUserPremium", (data) => {
     Swal.fire({
         icon: 'error',
         title: data,
-        confirmButtonText: 'Aceptar', 
+        confirmButtonText: 'Aceptar',
     }).then((result) => {
         if (result.isConfirmed) {
-            location.reload(); 
+            location.reload();
         }
     });
 });
 
-
-/*
-socket.on("test", data => {
-console.log(data)
-})
-
-const socket = io()
-
-//Envía
-
-socket.emit("message", "!Hola, me estoy comunicando desde un websocket!")
-
-//Recibe en la consola del Navegador
-
-socket.on("test", data => {
-console.log(data)
-})
-
-*/

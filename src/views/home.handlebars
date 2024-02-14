@@ -45,8 +45,8 @@
     document.getElementById('logoutButton').addEventListener('click', cerrarSesion);
     function cerrarSesion() {
         localStorage.removeItem("token");
-        var userEmail = "{{user.email}}";
-        // Redirigir a la página de logout con el correo como parámetro
+        let userEmail = "{{user.email}}";
+
         window.location.href = '/logout?email=' + userEmail;
     }
 </script>

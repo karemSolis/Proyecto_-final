@@ -21,7 +21,6 @@ export default class Carts {
 
             return { cart };
         } catch (error) {
-            console.error('Error al obtener el carrito:', error);
             return { error: 'Error interno al obtener el carrito' };
         }
     };
@@ -85,7 +84,6 @@ export default class Carts {
             let totalAmount = 0;
 
             if (!productos || !Array.isArray(productos)) {
-                console.error('La propiedad "productos" no es un array válido.');
                 return totalAmount;
             }
 
@@ -95,7 +93,6 @@ export default class Carts {
 
             return totalAmount;
         } catch (error) {
-            console.error('Error al calcular el monto:', error);
             return 0;
         }
     };
@@ -133,10 +130,8 @@ export default class Carts {
 
             await cart.save();
 
-            console.log('Producto agregado al carrito correctamente');
-            return cart;
+
         } catch (error) {
-            console.error('Error al agregar producto al carrito:', error);
             throw new Error('Error al agregar producto al carrito de compras');
         }
     };

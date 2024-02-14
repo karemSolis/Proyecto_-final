@@ -61,7 +61,7 @@
         window.location.href = '/';
     }
     document.addEventListener("DOMContentLoaded", function () {
-        // Obtener referencia a la lista de productos y al formulario
+
         const productsList = document.getElementById("productsContainer");
         const descInput = document.getElementById("desc");
         const imgInput = document.getElementById("img");
@@ -71,12 +71,12 @@
         const ownInput = document.getElementById("owner");
         const idInput = document.getElementById("productId");
 
-        // Agregar un evento de clic a la lista de productos
+
         productsList.addEventListener("click", function (event) {
-            // Verificar si el clic fue en un elemento de la lista
+        
             const clickedElement = event.target;
             if (clickedElement.tagName === "LI") {
-                // Obtener la información del producto desde los atributos del elemento de la lista
+            
                 const description = clickedElement.getAttribute("data-description");
                 const image = clickedElement.getAttribute("data-image");
                 const price = clickedElement.getAttribute("data-price");
@@ -84,7 +84,7 @@
                 const owner = clickedElement.getAttribute("data-owner");
                 const productId = clickedElement.getAttribute("data-id");
 
-                // Actualizar los campos del formulario con la información del producto
+                
                 descInput.value = description;
                 imgInput.value = image;
                 priceInput.value = price;

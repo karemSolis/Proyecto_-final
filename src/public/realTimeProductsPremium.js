@@ -41,21 +41,21 @@ document.getElementById('prod-form').addEventListener('submit', (e) => {
     if (eliminarProducto) {
         // Enviar mensaje si el checkbox está seleccionado
         socket.emit("delProdPremium", { id: id, owner: owner, email: email });
-    }else{
+    } else {
         const newProduct = {
             description: description,
-            image:image,
+            image: image,
             price: price,
             stock: stock,
             availability: available,
             owner: owner,
         }
-    
+
         if (id === '') {
-            
+
             socket.emit("newProd", newProduct);
         } else {
-            
+
             socket.emit("updProd", { id: id, newProduct });
         }
     }
@@ -66,10 +66,10 @@ socket.on("success", (data) => {
         icon: 'success',
         title: data,
         text: `A continuación verás la lista actualizada`,
-        confirmButtonText: 'Aceptar', 
+        confirmButtonText: 'Aceptar',
     }).then((result) => {
         if (result.isConfirmed) {
-            location.reload(); 
+            location.reload();
         }
     });
 });
@@ -78,30 +78,11 @@ socket.on("errorDelPremium", (data) => {
     Swal.fire({
         icon: 'error',
         title: data,
-        confirmButtonText: 'Aceptar', 
+        confirmButtonText: 'Aceptar',
     }).then((result) => {
         if (result.isConfirmed) {
-            location.reload(); 
+            location.reload();
         }
     });
 });
 
-
-/*
-socket.on("test", data => {
-    console.log(data)
-})
-
-const socket = io()
-
-//Envía
-
-socket.emit("message", "!Hola, me estoy comunicando desde un websocket!")
-
-//Recibe en la consola del Navegador
-
-socket.on("test", data => {
-    console.log(data)
-})
-
-*/

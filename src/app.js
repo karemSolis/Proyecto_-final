@@ -32,7 +32,7 @@ import { nanoid } from 'nanoid';
 import { engine } from "express-handlebars";
 import logger from './logger.js';
 
-//import config from './config/factory.config.js'
+
 
 dotenv.config();
 
@@ -49,21 +49,18 @@ mongoose.connect(process.env.MONGO_URL, {
     useUnifiedTopology: true,
 });
 
-// Agregar un registro cuando la conexión a la base de datos se establece correctamente
+
 mongoose.connection.on('connected', () => {
-    console.log('Conexión establecida con la base de datos Atlas de MongoDB');
     logger.info('Conexión establecida con la base de datos Atlas de MongoDB');
 });
 
-// Manejar errores de conexión
+
 mongoose.connection.on('error', (err) => {
-    console.error('Error al conectar a la base de datos Atlas de MongoDB:', err.message);
     logger.error('Error al conectar a la base de datos Atlas de MongoDB:', err.message);
 });
 
-// Manejar desconexiones
+
 mongoose.connection.on('disconnected', () => {
-    console.log('Desconectado de la base de datos Atlas de MongoDB');
     logger.warn('Desconectado de la base de datos Atlas de MongoDB');
 });
 
@@ -74,11 +71,10 @@ const jwtOptions = {
 }
 
 passport.use(
-    new JwtStrategy(jwtOptions, (jwt_payload, done)=>{
-        const user = users.findJWT((user) =>user.email ===jwt_payload.email)
-        if(!user)
-        {
-            return done(null, false, {message:"No se encuentra usuario"})
+    new JwtStrategy(jwtOptions, (jwt_payload, done) => {
+        const user = users.findJWT((user) => user.email === jwt_payload.email)
+        if (!user) {
+            return done(null, false, { message: "No se encuentra usuario" })
         }
         return done(null, user)
     })
@@ -105,31 +101,31 @@ const httpServer = app.listen(port, () => {
     console.log(`Servidor corriendo en el puerto ${port}`)
 })
 
-//API
+
 const swaggerOptions = {
-    definition:{
-        openapi:'3.0.1',
-        info:{
+    definition: {
+        openapi: '3.0.1',
+        info: {
             title: 'Documentación API',
-            description:'Documentación realizada con Swagger'
+            description: 'Documentación realizada con Swagger'
         }
     },
-    apis:[`src/docs/users.yaml`,
-          `src/docs/products.yaml`,
-          `src/docs/orders.yaml`,
-          `src/docs/carts.yaml`]
+    apis: [`src/docs/users.yaml`,
+        `src/docs/products.yaml`,
+        `src/docs/orders.yaml`,
+        `src/docs/carts.yaml`]
 }
 const specs = swaggerJSDoc(swaggerOptions)
 app.use("/apidocs", swaggerUIExpress.serve, swaggerUIExpress.setup(specs))
 
-//Socket.io
+
 
 const socketServer = new Server(httpServer);
 
-//Prueba conexión
+
 socketServer.on("connection", socket => {
     console.log("Socket Conectado")
-//Recibir información del cliente
+
     socket.on("message", data => {
         console.log(data)
     })
@@ -138,21 +134,21 @@ socketServer.on("connection", socket => {
         users.deleteUser(id)
         socketServer.emit("success", "Usuario Eliminado Correctamente");
     });
-    socket.on("updRolUser", ({id, newRol}) => {
-        users.updateUserRoleById({uid: id, rol: newRol})
+    socket.on("updRolUser", ({ id, newRol }) => {
+        users.updateUserRoleById({ uid: id, rol: newRol })
         socketServer.emit("success", "Usuario Actualizado Correctamente");
     });
     socket.on("newProdInCart", async ({ idProd, quantity, email }) => {
         try {
             let idCart = await users.getIdCartByEmailUser(email);
-    
+
 
             if (!idCart) {
                 const newCart = await carts.addCart();
                 idCart = newCart._id.toString();
                 await users.updateIdCartUser({ email, newIdCart: idCart });
             }
-    
+
             await carts.addProductsToCart(idCart, idProd, quantity);
             socketServer.emit("success", "Producto Agregado Correctamente");
         } catch (error) {
@@ -160,18 +156,18 @@ socketServer.on("connection", socket => {
             socketServer.emit("error", "Error al agregar producto al carrito");
         }
     });
-    
+
     socket.on("newProd", async (newProduct) => {
         let validUserPremium = await users.getUserRoleByEmail(newProduct.owner)
-        if(validUserPremium == 'premium'){
+        if (validUserPremium == 'premium') {
             products.addProduct(newProduct)
             socketServer.emit("success", "Producto Agregado Correctamente");
-        }else{
+        } else {
             socketServer.emit("errorUserPremium", "Producto no fue agregado porque owner no es usuario premium");
         }
-        
+
     });
-    socket.on("updProd", ({id, newProduct}) => {
+    socket.on("updProd", ({ id, newProduct }) => {
         products.updateProduct(id, newProduct)
         socketServer.emit("success", "Producto Actualizado Correctamente");
     });
@@ -179,20 +175,20 @@ socketServer.on("connection", socket => {
         let ownerProd = await products.getProductOwnerById(id.id)
         const ownerResult = ownerProd.owner;
         let validUserPremium = await users.getUserRoleByEmail(ownerResult)
-        if(validUserPremium == 'premium'){
+        if (validUserPremium == 'premium') {
             transport.sendMail({
                 from: `Correo Informativo para <${ownerProd}>`,
-                to:ownerResult,
-                subject:'Información Eliminación Producto',
-                html:`Se elimina producto con id ${id.id} correctamente`,
-                attachments:[]
+                to: ownerResult,
+                subject: 'Información Eliminación Producto',
+                html: `Se elimina producto con id ${id.id} correctamente`,
+                attachments: []
             })
             await products.deleteProduct(id)
             socketServer.emit("success", "Producto Eliminado Correctamente");
-        }else{
+        } else {
             await products.deleteProduct(id)
             socketServer.emit("success", "Producto Eliminado Correctamente");
-        }     
+        }
     });
     socket.on("delProdPremium", async ({ id, owner, email }) => {
         try {
@@ -210,62 +206,60 @@ socketServer.on("connection", socket => {
     socket.on("notMatchPass", () => {
         socketServer.emit("warning", "Las contraseñas son distintas, reintente");
     });
-    socket.on("validActualPass", async({password1, password2, email}) => {
+    socket.on("validActualPass", async ({ password1, password2, email }) => {
         const emailToFind = email;
         const user = await users.findEmail({ email: emailToFind });
         const passActual = users.getPasswordByEmail(emailToFind)
         const validSamePass = isValidPassword(user, password1)
 
-        if(validSamePass){
-            socketServer.emit("samePass","No se puede ingresar la última contraseña valida, reintente");
-        }else{
+        if (validSamePass) {
+            socketServer.emit("samePass", "No se puede ingresar la última contraseña valida, reintente");
+        } else {
             const hashedPassword = await createHash(password1);
-            const updatePassword = await users.updatePassword(email,hashedPassword)
-            if(updatePassword)
-            {
-                socketServer.emit("passChange","La contraseña fue cambiada correctamente");    
+            const updatePassword = await users.updatePassword(email, hashedPassword)
+            if (updatePassword) {
+                socketServer.emit("passChange", "La contraseña fue cambiada correctamente");
             }
-            else
-            {
-                socketServer.emit("errorPassChange","Error al cambiar la contraseña");   
+            else {
+                socketServer.emit("errorPassChange", "Error al cambiar la contraseña");
             }
-        }        
+        }
     });
 
-    socket.on("newEmail", async({email, comment}) => {
+    socket.on("newEmail", async ({ email, comment }) => {
         let result = await transport.sendMail({
-            from:'Chat Correo <soliskarem@gmail.com>',
-            to:email,
-            subject:'Correo con Socket y Nodemailer',
-            html:`
+            from: 'Chat Correo <soliskarem@gmail.com>',
+            to: email,
+            subject: 'Correo con Socket y Nodemailer',
+            html: `
             <div>
                 <h1>${comment}</h1>
             </div>
             `,
-            attachments:[]
+            attachments: []
         })
         socketServer.emit("success", "Correo enviado correctamente");
     });
 
-    socket.emit("test","mensaje desde servidor a cliente, se valida en consola de navegador")
+    socket.emit("test", "mensaje desde servidor a cliente, se valida en consola de navegador")
 
 })
 
-//Prueba Back con endpoint
+
 app.use("/carts", cartsRouter)
 app.use("/products", productsRouter)
 app.use("/users", usersRouter)
 app.use("/orders", ordersRouter)
 
-//Prueba Front
+
 app.post("/login", async (req, res) => {
     const { email, password } = req.body;
     const emailToFind = email;
     const user = await users.findEmail({ email: emailToFind });
 
     if (!user) {
-      req.logger.error("Error de autenticación: Usuario no encontrado");
-      return res.status(401).json({ message: "Error de autenticación" });
+        req.logger.error("Error de autenticación: Usuario no encontrado");
+        return res.status(401).json({ message: "Error de autenticación" });
     }
 
 
@@ -278,16 +272,16 @@ app.post("/login", async (req, res) => {
         }
 
 
-        const token = generateAndSetToken(res, email, password); 
+        const token = generateAndSetToken(res, email, password);
         const userDTO = new UserDTO(user);
         const prodAll = await products.get();
         users.updateLastConnection(email)
         res.json({ token, user: userDTO, prodAll });
 
-        // Log de éxito
+
         req.logger.info("Inicio de sesión exitoso para el usuario: " + emailToFind);
     } catch (error) {
-        // Manejo de errores relacionados con bcrypt
+
         req.logger.error("Error al comparar contraseñas: " + error.message);
         console.error("Error al comparar contraseñas:", error);
         return res.status(500).json({ message: "Error interno del servidor" });
@@ -320,7 +314,7 @@ app.post("/api/register", async (req, res) => {
         const token = generateAndSetToken(res, email, password);
         res.send({ token });
 
-        // Log de éxito
+
         req.logger.info("Registro exitoso para el usuario: " + emailToFind);
     } catch (error) {
         req.logger.error("Error al intentar registrar al usuario: " + error.message);
@@ -343,37 +337,37 @@ app.get('/register', (req, res) => {
     res.sendFile('register.html', { root: app.get('views') });
 });
 
-app.get('/current',passportCall('jwt', { session: false }), authorization('user'),(req,res) =>{
+app.get('/current', passportCall('jwt', { session: false }), authorization('user'), (req, res) => {
     req.logger.info("Se inicia página de Usuario");
-    authorization('user')(req, res,async() => { 
+    authorization('user')(req, res, async () => {
         const userData = {
             email: req.user.email,
 
         };
         const idCartUser = await users.getIdCartByEmailUser(req.user.email)
         const prodAll = await products.get();
-        res.render('home', { products: prodAll, user: userData, cartId : idCartUser });
+        res.render('home', { products: prodAll, user: userData, cartId: idCartUser });
     });
 })
-app.get('/current-plus',passportCall('jwt', { session: false }), authorization('user'),(req,res) =>{
+app.get('/current-plus', passportCall('jwt', { session: false }), authorization('user'), (req, res) => {
     req.logger.info("Se inicia página de Usuario Plus (Premium)");
-    authorization('user')(req, res,async() => {  
-        const { token} = req.query;
-        const emailToken = getEmailFromTokenLogin(token) 
+    authorization('user')(req, res, async () => {
+        const { token } = req.query;
+        const emailToken = getEmailFromTokenLogin(token)
         const prodAll = await products.get();
         res.render('home-plus', { products: prodAll, email: emailToken });
     });
 })
-app.get('/admin',passportCall('jwt'), authorization('user'),(req,res) =>{
+app.get('/admin', passportCall('jwt'), authorization('user'), (req, res) => {
     req.logger.info("Se inicia página de Administrador");
-    authorization('user')(req, res,async() => {    
+    authorization('user')(req, res, async () => {
         const prodAll = await products.get();
         res.render('admin', { products: prodAll });
     });
 })
-app.get('/admin/users',passportCall('jwt'), authorization('user'),(req,res) =>{
+app.get('/admin/users', passportCall('jwt'), authorization('user'), (req, res) => {
     req.logger.info("Se inicia página de Administrador Usuario");
-    authorization('user')(req, res,async() => {    
+    authorization('user')(req, res, async () => {
         const userAll = await users.get();
         const simplifiedUserData = userAll.map(user => ({
             _id: user._id.toString(),
@@ -381,58 +375,56 @@ app.get('/admin/users',passportCall('jwt'), authorization('user'),(req,res) =>{
             email: user.email,
             rol: user.rol,
         }));
-        res.render('admin-user', { users: simplifiedUserData  });
+        res.render('admin-user', { users: simplifiedUserData });
     });
 })
-//Cambiar Contraseña
+
 app.post('/forgot-password', async (req, res) => {
     const { email } = req.body;
     const emailToFind = email;
     const userExists = await users.findEmail({ email: emailToFind });
     if (!userExists) {
-      req.logger.error("Error al reestablecer contraseña usuario "+email+" no existe")
-      console.error("Error al reestablecer contraseña usuario "+email+" no existe")
-      res.json("Error al reestablecer contraseña usuario "+email+" no existe" );
-      return res.status(401).json({ message: "Error al reestablecer contraseña" });
+        req.logger.error("Error al reestablecer contraseña usuario " + email + " no existe")
+        console.error("Error al reestablecer contraseña usuario " + email + " no existe")
+        res.json("Error al reestablecer contraseña usuario " + email + " no existe");
+        return res.status(401).json({ message: "Error al reestablecer contraseña" });
     }
-    // Crear y firmar el token JWT con una expiración de 1 hora
+
     const token = generateAndSetTokenEmail(email)
-  
-    // Configurar el enlace de restablecimiento de contraseña
+
+
     const resetLink = `http://localhost:8080/reset-password?token=${token}`;
-  
+
     let result = transport.sendMail({
-        from:'<soliskarem@gmail.com>',
-        to:email,
-        subject:'Restablecer contraseña',
-        html:`Haz clic en el siguiente enlace para restablecer tu contraseña: <a href="${resetLink}">Restablecer contraseña</a>`,
-        attachments:[]
+        from: '<soliskarem@gmail.com>',
+        to: email,
+        subject: 'Restablecer contraseña',
+        html: `Haz clic en el siguiente enlace para restablecer tu contraseña: <a href="${resetLink}">Restablecer contraseña</a>`,
+        attachments: []
     })
-    if(result)
-    {
+    if (result) {
         req.logger.info("Se envia correo para reestablecer contraseña a correo" + emailToFind);
-        res.json("Correo para reestablecer contraseña fue enviado correctamente a "+email);
+        res.json("Correo para reestablecer contraseña fue enviado correctamente a " + email);
     }
-    else
-    {
+    else {
         req.logger.error("Error al enviar correo para reestablecer contraseña");
         console.error("Error al intentar reestablecer contraseña");
         res.json("Error al intentar reestablecer contraseña");
     }
-  });
-  app.get('/reset-password', async (req, res) => {
-    const { token} = req.query;
+});
+app.get('/reset-password', async (req, res) => {
+    const { token } = req.query;
     const validate = validateTokenResetPass(token)
     const emailToken = getEmailFromToken(token)
-    if(validate){
-        res.render('resetPassword', { token , email: emailToken});
+    if (validate) {
+        res.render('resetPassword', { token, email: emailToken });
     }
-    else{
+    else {
         res.sendFile('index.html', { root: app.get('views') });
     }
-  });
-//Cambiar Contraseña
-//Ver Carritos//
+});
+
+
 app.get("/carts/:cid", async (req, res) => {
     try {
         let id = req.params.cid;
@@ -465,8 +457,8 @@ app.get("/carts/:cid", async (req, res) => {
     }
 });
 
-//Fin Ver Carritos//
-//Ver Checkout//
+
+
 app.get("/checkout", async (req, res) => {
     let cart_Id = req.query.cartId
     let purchaser = req.query.purchaser
@@ -475,21 +467,21 @@ app.get("/checkout", async (req, res) => {
     let quantities = req.query.quantities || [];
 
     if (productIds.length > 0 && quantities.length > 0 && productIds.length === quantities.length) {
-        
+
         for (let i = 0; i < productIds.length; i++) {
             let productId = productIds[i];
             let quantity = quantities[i];
 
-            
+
             let product = await products.getProductById(productId);
-            
+
             if (product && product.stock >= quantity) {
-                
+
                 product.stock -= quantity;
 
                 await products.updateProduct(productId, { stock: product.stock });
             } else {
-                
+
                 return res.status(400).send("Error: Producto no disponible o stock insuficiente");
             }
         }
@@ -497,39 +489,38 @@ app.get("/checkout", async (req, res) => {
 
     let newCart = await carts.addCart()
     let newIdCart = newCart._id.toString()
-    let updateUser = await users.updateIdCartUser({email: purchaser, newIdCart})
-    if(updateUser)
-    {
+    let updateUser = await users.updateIdCartUser({ email: purchaser, newIdCart })
+    if (updateUser) {
         const newOrder = {
             code: nanoid(),
             purchase_datetime: Date(),
-            amount:totalAmount,
+            amount: totalAmount,
             purchaser: purchaser,
-            id_cart_order:cart_Id
-       }
-       let result = await orders.addOrder(newOrder)
-       const newOrderId = result._id.toString();
-       
-       res.redirect(`/orders/${newOrderId}`);
+            id_cart_order: cart_Id
+        }
+        let result = await orders.addOrder(newOrder)
+        const newOrderId = result._id.toString();
+
+        res.redirect(`/orders/${newOrderId}`);
     }
-     
+
 })
 
-//VER ORDERS
+
 app.get("/orders/:Oid", async (req, res) => {
     let id = req.params.Oid
-    let allOrders  = await orders.getOrderById(id)
+    let allOrders = await orders.getOrderById(id)
     res.render("viewOrder", {
         title: "Vista Order",
-        Orders : allOrders
+        Orders: allOrders
     });
 })
 
-//Mocking
+
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min);
 }
-app.get("/mockingproducts", async(req,res)=>{
+app.get("/mockingproducts", async (req, res) => {
 
     const products = [];
 

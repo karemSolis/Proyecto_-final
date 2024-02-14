@@ -1,16 +1,16 @@
-<!-- viewProducts.handlebars -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Detalle Producto</title>
-    <!-- Agrega tus estilos CSS aquí -->
+
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
     <a href="/current">Seguir comprando</a>
-     Carrito de usuario {{user}}
+        Carrito de usuario {{user}}
     <div class="product-details">
         <p>Carrito ID: {{carts._id}}</p>
         <h2>Productos en el carrito:</h2>
@@ -26,7 +26,7 @@
             {{/each}}
         </ul>
         <p>Suma Total: ${{calculateSumTotal carts.products}}</p>
-       <p id="totalPriceDisplay"></p> 
+        <p id="totalPriceDisplay"></p> 
         <form action="/checkout" method="GET">
             {{#each carts.products}}
             <input type="hidden" name="products[]" value="{{this.productId._id}}">
@@ -41,10 +41,9 @@
         </form>
     </div>
 
-    <!-- Agrega cualquier otro contenido que desees mostrar en la página -->
 
     <footer>
-        <!-- Agrega contenido del pie de página si es necesario -->
+
     </footer>
 </body>
 </html>

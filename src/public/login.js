@@ -3,7 +3,7 @@
 document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     console.log("Formulario de inicio de sesión enviado.");
-    
+
     const email = document.querySelector("#email").value;
     const password = document.querySelector("#password").value;
     console.log("Email y contraseña obtenidos del formulario:", email, password);
@@ -65,32 +65,32 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const forgotPasswordButton = document.getElementById("forgotPasswordButton");
-  const lblRecuperacion = document.getElementById("lblRecuperacion");
+    const forgotPasswordButton = document.getElementById("forgotPasswordButton");
+    const lblRecuperacion = document.getElementById("lblRecuperacion");
 
-  forgotPasswordButton.addEventListener("click", async function (event) {
-      event.preventDefault();
-      const email = document.getElementById("email").value;
+    forgotPasswordButton.addEventListener("click", async function (event) {
+        event.preventDefault();
+        const email = document.getElementById("email").value;
 
-      try {
-          const responsePass = await fetch("/forgot-password", {
-              method: "POST",
-              body: JSON.stringify({ email }),
-              headers: {
-                  "Content-Type": "application/json",
-              },
-          });
+        try {
+            const responsePass = await fetch("/forgot-password", {
+                method: "POST",
+                body: JSON.stringify({ email }),
+                headers: {
+                    "Content-Type": "application/json",
+                },
+            });
 
-          if (responsePass.ok) {
-              const result = await responsePass.text();
-              lblRecuperacion.textContent = result;
-          } else {
-              const result = await responsePass.text();
-              lblRecuperacion.textContent = result;
-              console.error("Error en la solicitud de recuperación de contraseña:", responsePass.statusText);
-          }
-      } catch (error) {
-          console.error("Error de red en la solicitud de recuperación de contraseña:", error);
-      }
-  });
+            if (responsePass.ok) {
+                const result = await responsePass.text();
+                lblRecuperacion.textContent = result;
+            } else {
+                const result = await responsePass.text();
+                lblRecuperacion.textContent = result;
+                console.error("Error en la solicitud de recuperación de contraseña:", responsePass.statusText);
+            }
+        } catch (error) {
+            console.error("Error de red en la solicitud de recuperación de contraseña:", error);
+        }
+    });
 });
