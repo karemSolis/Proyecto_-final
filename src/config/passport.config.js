@@ -1,5 +1,5 @@
 import dotenv from 'dotenv';
-import passport from "passport" 
+import passport from "passport"
 import jwt from "passport-jwt"
 
 
@@ -19,9 +19,10 @@ const cookieExtractor = req => {//función para extraer el token el objeto reqbu
 
 const initializePassport = () => {//función para iniciar configuración de passport
 
-    passport.use('jwt', new JwtStrategy ({jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),//configuración de passport para uasar la estrategia jwt, saca las cookies de la solicitud usando cookieExtractor 
-        //secretOrKey: process.env.SESSION_SECRET //usando la clave secreta session_secret
-        secretOrKey: "ClaveSecretaSeguraYUnicajojojo"
+    passport.use('jwt', new JwtStrategy({
+        jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),//configuración de passport para uasar la estrategia jwt, saca las cookies de la solicitud usando cookieExtractor 
+        secretOrKey: process.env.SESSION_SECRET //usando la clave secreta session_secret
+        //secretOrKey: "ClaveSecretaSeguraYUnicajojojo"
 
     }, async (jwt_payload, done) => {
         try {
