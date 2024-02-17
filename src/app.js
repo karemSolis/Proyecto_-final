@@ -15,6 +15,7 @@ import initializePassport from "./config/passport.config.js";
 import * as path from "path";
 import __dirname, { authorization, passportCall, transport, createHash, isValidPassword } from "./utils.js";
 import loggerMiddleware from "./loggerMiddleware.js";
+import logger from './logger.js';
 //RUTAS Y CONTROLADORES 
 import cartsRouter from './routes/carts.router.js';
 import productsRouter from './routes/products.router.js';
@@ -30,7 +31,7 @@ import { Strategy as JwtStrategy } from 'passport-jwt';
 import { ExtractJwt as ExtractJwt } from 'passport-jwt';
 import { nanoid } from 'nanoid';
 import { engine } from "express-handlebars";
-import logger from './logger.js';
+
 
 
 
@@ -66,8 +67,8 @@ mongoose.connection.on('disconnected', () => {
 
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    //secretOrKey: process.env.SESSION_SECRET
-    secretOrKey: "ClaveSecretaSeguraYUnicajojojo"
+    secretOrKey: process.env.SESSION_SECRET
+    //secretOrKey: "ClaveSecretaSeguraYUnicajojojo"
 }
 
 passport.use(

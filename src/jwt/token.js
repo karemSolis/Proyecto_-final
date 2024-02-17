@@ -1,17 +1,21 @@
 import jwt from 'jsonwebtoken';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 export function generateAndSetToken(res, email, password) {
-  const token = jwt.sign({ email, password, role: "user" }, "ClaveSecretaSeguraYUnicajojojo", { expiresIn: "24h" });
+  const token = jwt.sign({ email, password, role: "user" }, process.env.SESSION_SECRET, { expiresIn: "24h" });
   res.cookie("token", token, { httpOnly: true, maxAge: 60 * 60 * 1000 });
   return token
 }
 export function getEmailFromTokenLogin(token) {
   try {
-    const decoded = jwt.verify(token, 'ClaveSecretaSeguraYUnicajojojo');
+    const decoded = jwt.verify(token, process.env.SESSION_SECRET);
+    //const decoded = jwt.verify(token, 'ClaveSecretaSeguraYUnicajojojo');
     return decoded.email;
   } catch (error) {
     console.error('Error al decodificar el token:', error);
-    return null; 
+    return null;
   }
 }
 
@@ -38,7 +42,7 @@ export function validateTokenResetPass(token) {
   } catch (error) {
     if (error.name === 'TokenExpiredError') {
       console.error('El token ha expirado');
-      return null; 
+      return null;
     } else {
       console.error('Error al verificar el token:', error);
       return null;

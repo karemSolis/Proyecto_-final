@@ -83,3 +83,5 @@
 {"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
 {"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
 {"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
+{"level":"warn","message":"Desconectado de la base de datos Atlas de MongoDB"}
+{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}

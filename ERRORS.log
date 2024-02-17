@@ -56,3 +56,5 @@
 {"level":"error","message":"Error al conectar a la base de datos Atlas de MongoDB:"}
 {"level":"error","message":"El owner debe contener usuarios premium"}
 {"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
+{"level":"error","message":"Error al conectar a la base de datos Atlas de MongoDB:"}
+{"level":"error","message":"Error de autenticación: Contraseña incorrecta"}
