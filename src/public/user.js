@@ -1,3 +1,4 @@
+import logger from "../logger";
 const socket = io()
 
 document.getElementById('email-form').addEventListener('submit', (e) => {
@@ -10,12 +11,12 @@ document.getElementById('email-form').addEventListener('submit', (e) => {
     const comInput = document.getElementById('com');
     const comment = comInput.value;
     comInput.value = '';
-    console.log(email)
-    console.log(comment)
+    logger.info(email)
+    logger.info(comment)
 
-    socket.emit("newEmail",{email:email,comment:comment});
+    socket.emit("newEmail", { email: email, comment: comment });
 
-    }
+}
 )
 
 socket.on("success", (data) => {
@@ -23,10 +24,10 @@ socket.on("success", (data) => {
         icon: 'success',
         title: data,
         text: `Correo enviado`,
-        confirmButtonText: 'Aceptar', 
+        confirmButtonText: 'Aceptar',
     }).then((result) => {
         if (result.isConfirmed) {
-            location.reload(); 
+            location.reload();
         }
     });
 });

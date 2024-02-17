@@ -6,7 +6,7 @@ import Products from "../DAO/mongo/products.mongo.js"
 import CustomError from "../services/errors/CustomError.js";
 import EErrors from "../services/errors/enum.js";
 import { generateProductErrorInfo } from "../services/errors/info.js";
-import {transport} from "../utils.js"
+import { transport } from "../utils.js"
 
 const router = Router()
 
@@ -14,20 +14,18 @@ const productMongo = new Products()
 
 
 router.get("/", async (req, res) => {
-    try
-    {
+    try {
         req.logger.info('Se cargan productos');
         let result = await productMongo.get()
         res.status(200).send({ status: "success", payload: result });
-    } 
-    catch (error) 
-    {
+    }
+    catch (error) {
         res.status(500).send({ status: "error", message: "Error interno del servidor" });
     }
 })
 
 router.get("/:id", async (req, res) => {
-    try{
+    try {
         const prodId = req.params.id;
         const userEmail = req.query.email
         const productDetails = await productMongo.getProductById(prodId);
@@ -35,7 +33,7 @@ router.get("/:id", async (req, res) => {
     } catch (error) {
         console.error('Error al obtener el producto:', error);
         res.status(500).json({ error: 'Error al obtener el producto' });
-    } 
+    }
 });
 
 
@@ -46,7 +44,7 @@ router.post("/", async (req, res) => {
         if (!description || !price) {
             throw CustomError.createError({
                 name: 'Error en Creacion de Producto',
-                cause: generateProductErrorInfo({ description, price }), 
+                cause: generateProductErrorInfo({ description, price }),
                 message: 'Error al intentar crear el Producto',
                 code: EErrors.REQUIRED_DATA,
             });
@@ -72,28 +70,26 @@ router.post("/", async (req, res) => {
 
 
 router.delete('/:idProd', async (req, res) => {
-    try 
-    {
+    try {
         const idProducto = req.params.idProd;
         let ownerProd = await productMongo.getProductOwnerById(idProducto)
         let userRol = await userService.getRolUser(ownerProd.owner)
-        if(userRol == 'premium')
-        {
+        if (userRol == 'premium') {
             await transport.sendMail({
                 from: 'soliskarem@gmail.com',
                 to: ownerProd.owner,
                 subject: 'Se elimina Producto con Owner Premium',
-                html:`Se elimina producto con id ${idProducto} correctamente`,
+                html: `Se elimina producto con id ${idProducto} correctamente`,
             });
             res.status(200).json({ message: 'Producto eliminado con éxito.' });
-        }else{
+        } else {
             productMongo.deleteProduct(idProducto)
             res.status(200).json({ message: 'Producto eliminado con éxito.' });
         }
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Error al eliminar usuarios.' });
+        req.logger.error(error);
+        res.status(500).json({ error: 'Error al eliminar usuarios.' });
     }
-  });
+});
 
 export default router

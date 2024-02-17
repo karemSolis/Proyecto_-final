@@ -4,36 +4,34 @@ import OrderDTO from "../DAO/DTO/order.dto.js";
 import Carts from "../DAO/mongo/carts.mongo.js";
 import { orderService, cartService, userService } from "../repository/index.js";
 
+
 const router = Router()
 const cartMongo = new Carts()
 
 
 
 router.post("/", async (req, res) => {
-    try
-    {
+    try {
         let { products } = req.body
         const correo = req.body.email;
         let rolUser = userService.getRolUser(products.owner)
-        if(rolUser == 'premium' && correo == products.owner)
-        {
+        if (rolUser == 'premium' && correo == products.owner) {
             req.logger.error('Los usuarios premium no tienen la capacidad de agregar a su carrito productos que sean de su propiedad');
             res.status(500).send({ status: "error", message: "Los usuarios premium no tienen la capacidad de agregar a su carrito productos que sean de su propiedad" });
-        }else{
+        } else {
             let cart = new CartDTO({ products })
             let result = await cartService.createCart(cart)
-            if(result){
+            if (result) {
                 req.logger.info('Carrito creado correctamente');
                 res.status(200).send({ status: "success", payload: result });
-            }else{
+            } else {
                 req.logger.error("Error, No se puede crear carrito");
                 res.status(500).send({ status: "error", message: "Se produjo un error interno en el servidor" });
             }
-            
+
         }
     }
-    catch(error)
-    {
+    catch (error) {
         res.status(500).send({ status: "error", message: "Se produjo un error interno en el servidor" });
     }
 })
@@ -41,17 +39,15 @@ router.post("/", async (req, res) => {
 
 
 router.get("/", async (req, res) => {
-    try
-    {
+    try {
         req.logger.info('Se accede a una lista de carritos');
         let result = await cartMongo.get()
         res.status(200).send({ status: "success", payload: result });
     }
-    catch(error)
-    {
+    catch (error) {
         req.logger.info('Error, No se puede obtener la lista de carritos');
         res.status(500).send({ status: "error", message: "Error interno del servidor" });
-    } 
+    }
 })
 
 
@@ -74,7 +70,7 @@ router.post("/:cid/purchase", async (req, res) => {
             let totalAmount = await cartService.getQuantities({ productos });
             const orderFormat = new OrderDTO({ amount: totalAmount, purchaser: correo });
             const result = await orderService.createOrder(orderFormat);
-            
+
         } else {
             req.logger.error("La cantidad de stock no es suficiente para realizar la compra");
             return res.status(400).json({ error: "La cantidad de stock no es suficiente para realizar la compra" });

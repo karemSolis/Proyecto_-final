@@ -14,7 +14,6 @@ export function getEmailFromTokenLogin(token) {
     //const decoded = jwt.verify(token, 'ClaveSecretaSeguraYUnicajojojo');
     return decoded.email;
   } catch (error) {
-    console.error('Error al decodificar el token:', error);
     return null;
   }
 }
@@ -30,7 +29,6 @@ export function getEmailFromToken(token) {
     return email;
   } catch (error) {
 
-    console.error('Error al decodificar el token:', error);
     return null;
   }
 }
@@ -41,10 +39,8 @@ export function validateTokenResetPass(token) {
     return result;
   } catch (error) {
     if (error.name === 'TokenExpiredError') {
-      console.error('El token ha expirado');
       return null;
     } else {
-      console.error('Error al verificar el token:', error);
       return null;
     }
   }

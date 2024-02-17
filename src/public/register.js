@@ -1,12 +1,14 @@
+import logger from '../logger.js'
+
 document.getElementById('registerForm').addEventListener('submit', async (e) => {
     e.preventDefault();
 
     const first_nameInput = document.getElementById('first_name');
-    const last_nameInput= document.getElementById('last_name');
-    const emailInput= document.getElementById('email');
-    const ageInput= document.getElementById('age');
-    const passwordInput= document.getElementById('password');
-    const rolInput= document.getElementById('rol');
+    const last_nameInput = document.getElementById('last_name');
+    const emailInput = document.getElementById('email');
+    const ageInput = document.getElementById('age');
+    const passwordInput = document.getElementById('password');
+    const rolInput = document.getElementById('rol');
 
 
     const first_name = first_nameInput.value;
@@ -15,11 +17,10 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
     const age = ageInput.value;
     const password = passwordInput.value;
     const rol = rolInput.value;
-    try 
-    {
-        const response = await fetch("/api/register",{
+    try {
+        const response = await fetch("/api/register", {
             method: "POST",
-            body: JSON.stringify({first_name, last_name, email, age, password, rol}),
+            body: JSON.stringify({ first_name, last_name, email, age, password, rol }),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -34,10 +35,10 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
             }
 
         } else {
-            console.error('Error al enviar el mensaje. Estado:', response.status, 'Texto:', response.statusText);
+            logger.error('Error al enviar el mensaje. Estado:', response.status, 'Texto:', response.statusText);
 
         }
     } catch (error) {
-        console.error('Error de red:', error);
+        logger.error('Error de red:', error);
     }
 });
