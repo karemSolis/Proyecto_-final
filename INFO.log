@@ -764,3 +764,4 @@
 {"level":"info","message":"Se inicia página de Inicio de Login"}
 {"level":"info","message":"Inicio de sesión exitoso para el usuario: soliskarem@gmail.com"}
 {"level":"info","message":"Se inicia página de Administrador"}
+{"level":"info","message":"Conexión establecida con la base de datos Atlas de MongoDB"}
